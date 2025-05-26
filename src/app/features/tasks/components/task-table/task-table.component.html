@@ -1,0 +1,26 @@
+<h2>TASK TABLE</h2>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks()">
+      <td>{{ task.title }}</td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.createdAt | date:'short' }}</td>
+      <td>
+        <button (click)="edit(task)">Edit</button>
+        <button (click)="delete(task.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

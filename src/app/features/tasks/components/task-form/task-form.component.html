@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="task-form">
+  <h2>TASK ADD FORM</h2>
+  <div>
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" placeholder="Enter task title" />
+    <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="error">
+      Title is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="status">Status</label>
+    <select id="status" formControlName="status">
+      <option value="todo">To Do</option>
+      <option value="in-progress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">
+    {{ editTask ? 'Update Task' : 'Add Task' }}
+  </button>
+</form>
